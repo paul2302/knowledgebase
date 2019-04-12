@@ -67,8 +67,10 @@ class ArticlesController < ApplicationController
   end
 
   def translate_to_german(text)
-    "ÜBERSETZUNG"
+    translation = Rufregle.new.translate(text,"en","de")
+    translation[:translated]
   end
+
   def article_params
     params.require(:article).permit(:question, :answer)
   end
