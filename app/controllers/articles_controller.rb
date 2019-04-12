@@ -33,7 +33,6 @@ class ArticlesController < ApplicationController
   end
 
 
-
   #action for creating an article
   def create
     @article = Article.new(article_params)
@@ -55,7 +54,6 @@ class ArticlesController < ApplicationController
   end
 
 
-
   #deny malformed requests
 
   private
@@ -67,8 +65,12 @@ class ArticlesController < ApplicationController
   end
 
   def translate_to_german(text)
-    translation = Rufregle.new.translate(text,"en","de")
-    translation[:translated]
+    begin
+      translation = Rufregle.new.translate(text, "en", "de")
+      return translation[:translated]
+    rescue NoMethodError
+      return ""
+    end
   end
 
   def article_params
