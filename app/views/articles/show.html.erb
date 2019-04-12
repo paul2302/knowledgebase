@@ -1,0 +1,21 @@
+<p>
+  <strong>Question:</strong>
+  <%= @article.question %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @article.answer %>
+</p>
+
+<p>
+  <strong>Frage:</strong>
+  <%= @article.germanquestion %>
+</p>
+
+<p>
+  <strong>Antwort:</strong>
+  <%= @article.germananswer %>
+</p>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'All articles', articles_path %>
